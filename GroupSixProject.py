@@ -88,7 +88,7 @@ for status in tw.search.tweets(q=q,count=count)["statuses"]:
 x = 0
 
 #Outputing to a file for dendogram in R
-file = open("cokeTweets.csv","w")
+file = open("companyTweets.csv","w")
 for text in companyList:
     file.write(text)
     file.write("\n")
