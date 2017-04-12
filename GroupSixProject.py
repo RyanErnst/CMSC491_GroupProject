@@ -21,6 +21,7 @@ import russell as ru
 import codecs
 import nltk
 from vaderSentiment.vaderSentiment import sentiment as vaderSentiment
+from nltk import BigramAssocMeasures
 
 def removeUnicode(text):
     asciiText = ""
