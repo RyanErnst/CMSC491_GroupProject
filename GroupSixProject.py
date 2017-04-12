@@ -56,17 +56,17 @@ for status in tw.search.tweets(q=q,count=count)["statuses"]:
             x = x + 1
             test_str1 = json.dumps(status["text"]).encode('utf-8')
             vs1 = vaderSentiment(test_str1)
-            cokeLike = json.dumps(status["favorite_count"])
-            cokeRetweet = json.dumps(status["retweet_count"])
+            companyLike = json.dumps(status["favorite_count"])
+            companyRetweet = json.dumps(status["retweet_count"])
             
             #Tracking Tweet Messages
             companyList.append(test_str1)
             
             #Tracking Likes
-            companyLikes.append(cokeLike)
+            companyLikes.append(companyLike)
             
             #Tracking Retweet Count
-            companyRetweets.append(cokeRetweet)
+            companyRetweets.append(companyRetweet)
             
             #Tracking Sentiment Analysis
             companySentiment.append(str(vs1['compound']))
@@ -110,8 +110,8 @@ for kv in srtCnt1:
 lexCompany = 1.0*len(set(companyWords))/len(companyWords)
 
 file2 = open("PythonOutput.txt", "w")
-print "!=====================COKE===========================!"
-file2.write("!=====================COKE===========================!\n")
+print "!=====================COMPANY NAME===========================!"
+file2.write("!=====================COMPANY NAME===========================!\n")
 y = 1
 for x in range(0,25):
    print "%s: %s" %(y, companyList[x])
