@@ -45,7 +45,7 @@ companyList = []
 count = 100
 
 #gathering Tweets
-q = '@SOME TECH COMPANY'
+q = '@NintendoAmerica'
 lexicalCompany = []
 companyLikes = []
 companyRetweets = []
