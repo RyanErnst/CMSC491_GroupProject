@@ -1,5 +1,7 @@
 import facebook
 import json
+from vaderSentiment.vaderSentiment import sentiment as vaderSentiment
+import nltk
 
 def removeUnicode(text):
     asciiText=""
@@ -26,6 +28,11 @@ d_posts = fb.get_connections(switch, 'posts')
 #Total Switch Page Likes
 print "\nTotal Nintendo Switch Likes: %d" % (fb.get_object(switch)['likes'])+"\n"
 
+vs_tot = 0
+vs_pot = 0
+vs_neg = 0
+num_cmt = 0
+
 #Loop Through details of 10 Posts
 for i in range(0,10):
     print "##### Post Number :" + str(i+1) + " #####\n"
@@ -49,4 +56,26 @@ for i in range(0,10):
     print "Commenter Name: " + d_posts['data'][1]['comments']['data'][i]['from']['name'] #Name
     print "Comment Like Count: " + str(d_posts['data'][1]['comments']['data'][i] ['like_count']) #Like Count
     print
- 
+	
+	# Sentiment analysis per comment
+	vs = vaderSentiment(dataItem['message'].encode('utf-8'))
+	print "Sentiment: " + str(vs['compound'])
+	vs_tot = vs_tot + vs['compound']
+	num_cmt = num_cmt + 1
+	if vs['compound'] < 0:
+		vs_neg = vs_neg + 1
+	else:
+		vs_pos = vs_pos + 1
+
+# Sentiment analysis overall
+print "Overall sentiment is %f, pos %d, neg %d" % ((vs_tot / num_cmt)), vs_pos, vs_neg)
+
+#Frequency distribution
+frqDist = nltk.FreqDist(words)
+
+word_cnt = 0
+for item in frqDist.items():
+	word_cnt = word_cnt + item[1]
+unique_word_cnt = len(frqDist.keys())
+
+print("Lexical diversity is %f" % (1.0 * unique_word_cnt / word_cnt)
