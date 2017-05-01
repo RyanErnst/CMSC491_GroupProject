@@ -111,8 +111,8 @@ for kv in srtCnt1:
 lexCompany = 1.0*len(set(companyWords))/len(companyWords)
 
 file2 = open("PythonOutput.txt", "w")
-print "!=====================COMPANY NAME===========================!"
-file2.write("!=====================COMPANY NAME===========================!\n")
+print "!=====================Nintendo Switch===========================!"
+file2.write("!=====================Nintendo Switch===========================!\n")
 y = 1
 for x in range(0,25):
    print "%s: %s" %(y, companyList[x])
@@ -142,12 +142,5 @@ print pt1
 file2.write("%s\n" %(pt1))
 print "\n"
 file2.write("\n")
-
-#Screen Scraping Specific Functions
-fileObj = codecs.open("GroupSixProject.rtf", "w", "UTF")
-html = requests.get("COMPANY WEBPAGE(S)")
-
-soup = BeautifulSoup(html.text,'html5lib')
-all_paras = soup.find_all('p')
 
 #MORE TO BE DETERMINED/ENTERED
