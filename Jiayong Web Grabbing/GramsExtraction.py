@@ -5,10 +5,14 @@ import codecs
 import russell as ru
 from bs4 import BeautifulSoup
 
-theskips = ["and",".", "to", ",", "the", "for", "in", "of", "that", "a", "on", "is", "get", "you", "has", "as", "at", "are"
-,"'", "an", "with", "will", "not", "have", "would", "so","", "but",":", "be", "like", "if", "should", "also", "there", "or", "by", "per", " ",'', "As", "do"
-, "he", "their", "The", "They", "he", "It", "than", "'s", "this", "''", "``", "...", "More", "our", "I", "was", "n't", "We", "any", "other", "--", "'ll", "when", "more", "it", ")", "(",
-"can", "its", "one", "up", "we", "i", "use", "?", "from", "my", "which", "they", "$" ,"lot", "then", "youre", "your", "about", "said"]
+theskips = ["and",".", "to", ",", "the", "for", "in", "of", "that", "a", "on", "is", 
+"get", "you", "has", "as", "at", "are" ,"'", "an", "with", "will", "not", "have", 
+"would", "so","", "but",":", "be", "like", "if", "should", "also", "there", "or", 
+"by", "per", " ",'', "As", "do", "he", "their", "The", "They", "he", "It", "than", 
+"'s", "this", "''", "``", "...", "More", "our", "I", "was", "n't", "We", "any", 
+"other", "--", "'ll", "when", "more", "it", ")", "(", "can", "its", "one", "up", 
+"we", "i", "use", "?", "from", "my", "which", "they", "$" ,"lot", "then", 
+"youre", "your", "about", "said"]
 
 def removeUnicode(text):
 	asciiText = ""
