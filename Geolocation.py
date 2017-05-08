@@ -1,11 +1,22 @@
 # CMSC 491 Group Project - Geolocation of Nintendo Tweets
 # Richard Buck - rbuck2@umbc.edu
 
+import matplotlib.pyplot as ply
+import matplotlib.patches as mpathces
+from matplotlib.collections import PathCollection
 from string import ascii_uppercase
+import re
+import matplotlib.cm as cm
+import numpy as np
+import numpy.random as npr
+import os
+import csv
 from collections import Counter
+from operator import itemgetter
 from prettytable import PrettyTable
 import json
 from geopy import geocoders
+from geopy.exc import GeocoderTimedOut
 import twitter
 
 
@@ -29,15 +40,15 @@ def removeUnicode(text):
 
     return asciiText
 
-Bing_Key = 'gCXwcfiiO8seIP8ABtyA~FXYzdasnrBzLGd5Fz5McYg~Ar3fRJl1fYTp7XmS9cZJ09cpBYu73oTePDCLnYE9eMtDNXB0X3GDjK7-hg92xuTq'
+Bing_Key = 'Insert Bing Key Here'
 g = geocoders.Bing(Bing_Key)
 
 
 #tweet stuff here
-CONSUMER_KEY = 'jntLw4dJ8p22qqzLZ8TTMiK1c'
-CONSUMER_SECRET = 'HqjcJ2XOuaHikVLc6Qnj6jUvnNc1ItYTbz8ZHmu7N1M4m5xEjW'
-OAUTH_TOKEN = '82240277-ZhAxe3ZOHEFr9faEpEaq1jcfVqrCmiK0aH9LXAa17'
-OAUTH_TOKEN_SECRET = 'xyUinyofNgpK4zaLRebBTdIMTwLf4pclvLFs01WeYnPda'
+CONSUMER_KEY = 'INSERT YOURS HERE'
+CONSUMER_SECRET = 'INSERT YOURS HERE'
+OAUTH_TOKEN = 'INSERT YOURS HERE'
+OAUTH_TOKEN_SECRET = 'INSERT YOURS HERE'
 
 auth = twitter.oauth.OAuth(OAUTH_TOKEN,OAUTH_TOKEN_SECRET,CONSUMER_KEY,CONSUMER_SECRET)
 tw = twitter.Twitter(auth=auth)
